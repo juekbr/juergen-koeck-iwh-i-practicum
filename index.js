@@ -42,23 +42,7 @@ app.get('/', async (req, res) => {
 app.get('/update-cobj', async (req, res) => {
     // my properties are bike_name, brand, frame_size
     // my objecttype = 2-140603059
-   const bikes = 'https://api.hubspot.com/crm/v3/objects/2-140603059?properties=bike_name,brand,frame_size';
-   const headers = {
-       Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
-       'Content-Type': 'application/json'
-   }
-   try {
-       // this is my call with authorization
-       const response = await axios.get(bikes, { headers });
-       // writing the result into a variable
-       const data = response.data.results;
-       // thats the pug call - the first variable right after "render" is the pug template
-       res.render('bikes', { title: 'Update Custom Object Form | Integrating With HubSpot I Practicum.', data }); 
-       console.log('try');
-   } catch (error) {
-       console.error(error);
-       console.log('catch');
-   }
+    res.render('updates', { title: 'Update Custom Object Form | Integrating With HubSpot I Practicum.'}); 
 });
 
 

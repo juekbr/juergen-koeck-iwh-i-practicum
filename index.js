@@ -17,15 +17,15 @@ let PRIVATE_APP_ACCESS = process.env.API_TOKEN;
 app.get('/', async (req, res) => {
      // my properties are bike_name, brand, frame_size
      // my objecttype = 2-140603059
-    const bikes = 'https://api.hubspot.com/crm/v3/objects/:objectType?properties=bike_name,brand,frame_size';
+    const bikes = 'https://api.hubspot.com/crm/v3/objects/2-140603059?properties=bike_name,brand,frame_size';
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
         'Content-Type': 'application/json'
     }
     try {
-        // this is my call with auth
+        // this is my call with authorization
         const response = await axios.get(bikes, { headers });
-        // writing the into a variable
+        // writing the result into a variable
         const data = response.data.results;
         // thats the pug call - the first variable right after "render" is the pug template
         res.render('bikes', { title: 'Bikes | HubSpot APIs', data }); 

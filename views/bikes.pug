@@ -1,0 +1,14 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 Bikes
+        .cards 
+            each bike in data
+                .card 
+                    // my properties are bike_name, brand, frame_size
+                    h2.card__name #{bike.properties.bike_name}  #{bikeproperties.brand}
+                    p.card__email #{bike.properties.frame_size}

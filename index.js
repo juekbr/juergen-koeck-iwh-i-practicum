@@ -24,8 +24,8 @@ app.get('/', async (req, res) => {
         const response = await axios.get(contacts, { headers });
         const data = response.data.results;
         // console.log(resp.data.results);
-        // res.render('contacts', { title: 'Contacts | HubSpot APIs', data }); 
-        res.json(data);
+        res.render('contacts', { title: 'Contacts | HubSpot APIs', data }); 
+        //res.json(data);
         console.log('try');
     } catch (error) {
         console.error(error);

@@ -6,15 +6,15 @@ html
         link(rel="stylesheet", href="/css/style.css")
     body    
         h1 Custom Objects: Bike form
-        form.formular-wrapper (action="/" method="POST")
-        // my properties are bike_name, brand, frame_size
-        label(for="bike_name") E-Mail:
-        input.input(type="text" name="bike_name" required)
-        label(for="brand") E-Mail:
-        input.input(type="text" name="brand" required)
-        label(for="frame_size") E-Mail:
-        input.input(type="number" name="frame_size" required)
-
-        button.btn(type="submit") Send
+        .form-wrapper
+            form(action="/" method="POST")
+            // my properties are bike_name, brand, frame_size
+            label(for="bike_name") Bike name:
+            input.input(type="text" name="bike_name" required)
+            label(for="brand") Brand:
+            input.input(type="text" name="brand" required)
+            label(for="frame_size") Frame size:
+            input.input(type="number" name="frame_size" required)
+            button.input(type="submit") Create Bike
         a(href="http://localhost:3000") Return to the homepage
 

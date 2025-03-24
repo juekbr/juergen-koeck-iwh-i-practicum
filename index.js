@@ -15,17 +15,20 @@ let PRIVATE_APP_ACCESS = process.env.API_TOKEN;
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
 app.get('/', async (req, res) => {
-    const contacts = 'https://api.hubspot.com/crm/v3/objects/contacts';
+     // my properties are bike_name, brand, frame_size
+     // my objecttype = 2-140603059
+    const bikes = 'https://api.hubspot.com/crm/v3/objects/:objectType?properties=bike_name,brand,frame_size';
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
         'Content-Type': 'application/json'
     }
     try {
-        const response = await axios.get(contacts, { headers });
+        // this is my call with auth
+        const response = await axios.get(bikes, { headers });
+        // writing the into a variable
         const data = response.data.results;
-        // console.log(resp.data.results);
-        res.render('contacts', { title: 'Contacts | HubSpot APIs', data }); 
-        //res.json(data);
+        // thats the pug call - the first variable right after "render" is the pug template
+        res.render('bikes', { title: 'Bikes | HubSpot APIs', data }); 
         console.log('try');
     } catch (error) {
         console.error(error);

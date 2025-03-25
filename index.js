@@ -30,11 +30,11 @@ app.get('/', async (req, res) => {
         // writing the result into a variable
         const data = response.data.results;
         // thats the pug call - the first variable right after "render" is the pug template
-        res.render('bikes', { title: 'Bikes | HubSpot APIs', data }); 
-        console.log('try');
+        res.render('homepage', { title: 'Bikes | HubSpot APIs', data }); 
+        // console.log('try');
     } catch (error) {
         console.error(error);
-        console.log('catch');
+        // console.log('catch');
     }
 });
 
@@ -72,8 +72,8 @@ app.post('/update-cobj', async (req, res) => {
         // axios.patch(url, data, config)
         // axios.put(url, data, config)
         await axios.post(createBike, update, { headers } );
-        // back to last page in client =>
-        res.redirect('back');
+        // redirect back to homepage =>
+        res.redirect('/');
     } catch(err) {
         console.error(err);
     }

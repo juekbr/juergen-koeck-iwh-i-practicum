@@ -1,13 +1,13 @@
 doctype html
 html 
     head 
-        // title= `${title}`
+        title= `${title}`
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body    
         h1 Bikes - Custom Object Table
         a(href="http://localhost:3000/update-cobj") Add/update this table
-        table
+        table.basic-table
             thead
                 tr
                     each header in ['Bike name', 'Brand', 'Frame size']
@@ -15,6 +15,6 @@ html
             tbody
                 each bike in data
                     tr
-                        td= #{bike.properties.bike_name}
-                        td= #{bike.properties.brand}
-                        td= #{bike.properties.frame_size}
+                        td= bike.properties.bike_name
+                        td= bike.properties.brand
+                        td= bike.properties.frame_size

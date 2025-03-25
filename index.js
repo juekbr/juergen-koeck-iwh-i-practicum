@@ -54,26 +54,29 @@ app.post('/update-cobj', async (req, res) => {
     // my properties are bike_name, brand, frame_size
     // my objecttype = 2-140603059
     // 
-    // const update = {
-    //     properties: {
-    //         "bike_name": req.body.newVal,
-    //         "brand": req.body.newVal,
-    //         "frame_size": req.body.newVal
-    //     }
-    // }
+    const update = {
+        properties: {
+            "bike_name": req.body.bike_name,
+            "brand": req.body.brand,
+            "frame_size": req.body.frame_size
+        }
+    }
     // we going to use req.body instead of req.query, because we use post
-    const bike_name = req.body.bike_name;
-    const brand = req.body.brand;
-    const frame_size = req.body.frame_size;
+    // const bike_name = req.body.bike_name;
+    // const brand = req.body.brand;
+    // const frame_size = req.body.frame_size;
 
-    const updateContact = `https://api.hubapi.com/crm/v3/objects/contacts/${email}?idProperty=email`;
+    const createBike = `https://api.hubapi.com/crm/v3/objects/2-140603059`;
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
         'Content-Type': 'application/json'
     };
 
-    try { 
-        await axios.patch(updateContact, update, { headers } );
+    try {  
+        // axios.patch(url, data, config)
+        // axios.put(url, data, config)
+        await axios.patch(createBike, update, { headers } );
+        // back to last page in client =>
         res.redirect('back');
     } catch(err) {
         console.error(err);

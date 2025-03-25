@@ -5,16 +5,16 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body    
-        h1 Custom Objects: Bike form
+        h1 #{title}
         .form-wrapper
             form(action="/update-cobj" method="POST")
-            // my properties are bike_name, brand, frame_size
-            label(for="bike_name") Bike name:
-            input.input(type="text" name="bike_name" required)
-            label(for="brand") Brand:
-            input.input(type="text" name="brand" required)
-            label(for="frame_size") Frame size:
-            input.input(type="number" name="frame_size" required)
-            button.input(type="submit") Create Bike
+                // my properties are bike_name, brand, frame_size
+                label(for="bike_name") Bike name:
+                input.input(type="text" name="bike_name" required)
+                label(for="brand") Brand:
+                input.input(type="text" name="brand" required)
+                label(for="frame_size") Frame size:
+                input.input(type="number" name="frame_size" required)
+                button.input(type="submit") Create Bike
         a(href="http://localhost:3000") Return to the homepage
 

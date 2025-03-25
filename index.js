@@ -75,7 +75,7 @@ app.post('/update-cobj', async (req, res) => {
     try {  
         // axios.patch(url, data, config)
         // axios.put(url, data, config)
-        await axios.patch(createBike, update, { headers } );
+        await axios.put(createBike, update, { headers } );
         // back to last page in client =>
         res.redirect('back');
     } catch(err) {

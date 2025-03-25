@@ -3,8 +3,11 @@ const axios = require('axios');
 const app = express();
 require('dotenv').config();
 
+//activate pug =>
 app.set('view engine', 'pug');
+// where are the pug templates =>
 app.use(express.static(__dirname + '/public'));
+// this is the body parser, so we are able to use the post request =>
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -50,15 +53,16 @@ app.get('/update-cobj', async (req, res) => {
 app.post('/update-cobj', async (req, res) => {
     // my properties are bike_name, brand, frame_size
     // my objecttype = 2-140603059
-    const update = {
-        properties: {
-            "bike_name": req.body.newVal
-            "brand": req.body.newVal
-            "frame_size": req.body.newVal
-        }
-    }
-
-    const bike_name = req.query.bike_name;
+    // 
+    // const update = {
+    //     properties: {
+    //         "bike_name": req.body.newVal,
+    //         "brand": req.body.newVal,
+    //         "frame_size": req.body.newVal
+    //     }
+    // }
+    // we going to use req.body instead of req.query, because we use post
+    const bike_name = req.body.bike_name;
     const brand = req.body.brand;
     const frame_size = req.body.frame_size;
 
